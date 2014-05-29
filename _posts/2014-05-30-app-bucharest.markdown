@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Rails Girls App Tutorial - Rails Girls Bucharest, 30 May 2014
+extra_css:
+  - spacefull
 permalink: app-bucharest
 ---
 
@@ -41,6 +43,7 @@ First, let's open a terminal:
 * **Linux (Ubuntu/Fedora)**: Search for *Terminal* on the dash and click *Terminal*.
 * **Mac OS X**: Open Spotlight, type *Terminal* and click the *Terminal* application.
 
+___
 
 Next, type this command in the terminal:
 
@@ -66,6 +69,8 @@ You can verify that a directory named <code>projects</code> was created by runni
 
 You should see the <code>projects</code> directory in the output.
 
+___
+
 Now you want to change the current directory to the <code>projects</code> folder by running:
 
 
@@ -74,6 +79,8 @@ cd projects
 {% endhighlight %}
 
 You can verify that now you are in an empty directory or folder by running again the directory listing command.
+
+___
 
 Now you want to create a new app called <code>railsgirls</code> by running:
 
@@ -136,7 +143,11 @@ rails generate controller pages info
 
 This command will create you a new folder under `app/views` called `pages` and under that a file called `info.html.erb`, which will be your info page.
 
+___
+
 Now open the file `app/views/pages/info.html.erb` and inspect its contents. What you see there was generated automatically, and it is written in a language called HTML.
+
+___
 
 
 Open [http://localhost:3000/pages/info](http://localhost:3000/pages/info) in your browser to see the info page and try to figure out the connection between what is written in the `app/views/pages/info.html.erb` file and what you see in the browser (or ask your coach :D)
@@ -159,6 +170,8 @@ Then you can ask your coach to show you more HTML tags and see how they work.
 We're going to use Rails' scaffold functionality to generate a starting point that allows us to list, add, remove, edit, and view things; in our case ideas.
 
 **Coach:** What is Rails scaffolding? Explain the command, the model name and related database table, naming conventions, attributes and types, etc. What are migrations and why do you need them?
+
+___
 
 In the Terminal, stop the Rails server by hitting `CTRL-C`. You should see the Command Prompt again (which means you can give it commands). Run
 
@@ -187,6 +200,8 @@ rails server
 Open [http://localhost:3000/ideas](http://localhost:3000/ideas) in your browser. Click around and test what you got by running these few command-line commands.
 
 When you're done exploring, hit `CTRL-C` in the Terminal to quit the server again.
+
+___
 
 **Coach:** Talk about the relationship between HTML and Rails. What part of views is HTML and what is Embedded Ruby (ERB)? What is MVC and how does this relate to it? (Models and controllers are responsible for generating the HTML views.)
 
@@ -266,6 +281,8 @@ footer { margin-top: 100px; }
 
 Make sure you saved your files and refresh the browser to see the style improvements. Make a connection between the HTML that you added in the files and what you see in the browser.
 
+___
+
 Now, the table looks a bit crammed. Let's fix that! In the same file, `app/assets/stylesheets/application.css`, at the bottom add
 
 {% highlight css %}
@@ -282,6 +299,8 @@ Save the file again and refresh the browser to see what was changed.
 [Bootstrap](http://getbootstrap.com/) is a free collection of styles that look nice. By including it in a web page, and following their conventions on how to structure the HTML, you get a nice style without much effort. 
 
 But, if you want to experiment more with CSS and understand it better, you can play with it online. If you'd like to do that, go to [http://cssdesk.com/VFVEk](http://cssdesk.com/VFVEk).
+
+___
 
 You can also change the HTML &amp; CSS of your Ideas website - tell your coach what you'd like to do and they'll help you.
 
@@ -375,6 +394,8 @@ to
 {% highlight erb %}
 <%= form_for(@idea, :html => {:multipart => true}) do |f| %>
 {% endhighlight %}
+
+___
 
 In your browser, add new idea with a picture. When you upload a picture it doesn't look nice because it only shows a path to the file, so let's fix that.
 
