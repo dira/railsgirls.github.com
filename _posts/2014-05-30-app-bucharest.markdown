@@ -6,31 +6,7 @@ permalink: app-bucharest
 
 # Rails Girls App Tutorial
 
-*Created by Vesa Vänskä, [@vesan](https://twitter.com/vesan)*
-
-
-## Get to know the tools
-
-<div class="indent" markdown="1">
-
-<h3><i class="icon-text-editor">&nbsp;</i></h3>
-
-<h3>Text Editor</h3>
-
-<p><a href="http://www.sublimetext.com">Sublime Text</a>, <a href="http://www.activestate.com/komodo-edit">Komodo Edit</a>, Vim, Emacs, and Gedit are examples of text editors your can use for writing code and editing files.</p>
-
-<h3><i class="icon-prompt">&nbsp;</i></h3>
-
-<h3>Terminal (known as Command Prompt on Windows)</h3>
-Where you start the rails server and run commands.
-
-<h3><i class="icon-browser">&nbsp;</i></h3>
-
-<h3>Web browser</h3>
-(Firefox, Safari, Chrome) for viewing your application.
-
-</div>
-
+<span class="muted">*Created by Vesa Vänskä, [@vesan](https://twitter.com/vesan)* and improved by many</span>
 
 ## Step 1: Create the application
 
@@ -142,7 +118,7 @@ You can start the application by running:
 rails server
 {% endhighlight %}
 
-Open [http://localhost:3000](http://localhost:3000) in your browser. You should see "Welcome aboard" page, which means that the generation of your new app worked correctly.
+Open [http://localhost:3000](http://localhost:3000) in your browser. You should see the "Welcome aboard" page, which means that the generation of your new app worked correctly.
 
 Going back to the Terminal window, notice that now the command prompt is not visible because the Rails server took control of the window. To return to the normal command prompt, hit `CTRL-C` in the terminal to quit the server.
 
@@ -158,15 +134,20 @@ Lets add a page to our app; it will show information about the author of this ap
 rails generate controller pages info
 {% endhighlight %}
 
-This command will create you a new folder under `app/views` called `/pages` and under that a file called `info.html.erb` which will be your info page.
+This command will create you a new folder under `app/views` called `pages` and under that a file called `info.html.erb`, which will be your info page.
 
-Now open the file `app/views/pages/info.html.erb`. What you see there was generated automatically, and it is written in a language called HTML.
+Now open the file `app/views/pages/info.html.erb` and inspect its contents. What you see there was generated automatically, and it is written in a language called HTML.
+
 
 Open [http://localhost:3000/pages/info](http://localhost:3000/pages/info) in your browser to see the info page and try to figure out the connection between what is written in the `app/views/pages/info.html.erb` file and what you see in the browser (or ask your coach :D)
 
 **Coach:** Explain what are HTML tags and what they are useful for. Explain `<h1>` and `<p>`.
 
+___
+
 The next step is to replace that text with some information about you. Afterwards, refresh the page in the browser to see it in the website.
+
+___
 
 To experiment a bit more with HTML, open [http://htmledit.squarefree.com/](http://htmledit.squarefree.com/) and play with the editor.
 
@@ -283,7 +264,7 @@ body { padding-top: 100px; }
 footer { margin-top: 100px; }
 {% endhighlight %}
 
-Make sure you saved your files and refresh the browser to see the style improvements.
+Make sure you saved your files and refresh the browser to see the style improvements. Make a connection between the HTML that you added in the files and what you see in the browser.
 
 Now, the table looks a bit crammed. Let's fix that! In the same file, `app/assets/stylesheets/application.css`, at the bottom add
 
@@ -300,7 +281,7 @@ Save the file again and refresh the browser to see what was changed.
 
 [Bootstrap](http://getbootstrap.com/) is a free collection of styles that look nice. By including it in a web page, and following their conventions on how to structure the HTML, you get a nice style without much effort. 
 
-But, if you want to experiment more with CSS and understand it better, you can play with it online: [http://cssdesk.com/VFVEk](http://cssdesk.com/VFVEk).
+But, if you want to experiment more with CSS and understand it better, you can play with it online. If you'd like to do that, go to [http://cssdesk.com/VFVEk](http://cssdesk.com/VFVEk).
 
 You can also change the HTML &amp; CSS of your Ideas website - tell your coach what you'd like to do and they'll help you.
 
@@ -344,17 +325,21 @@ In the terminal run:
 bundle
 {% endhighlight %}
 
+
+At this point you need to **restart the Rails server process** in the terminal.
+
+Hit `CTRL-C` in the terminal to quit the server. Once it has stopped, you can press the up arrow to get to the last command entered, then hit enter to start the server again. (This is needed for the app to load the added library.)
+
+___
+
 Now we can generate the code for handling uploads. In the terminal run:
 
 {% highlight sh %}
 rails generate uploader Picture
 {% endhighlight %}
 
-At this point you need to **restart the Rails server process** in the terminal.
 
-Hit `CTRL-C` in the terminal to quit the server. Once it has stopped, you can press the up arrow to get to the last command entered, then hit enter to start the server again. (This is needed for the app to load the added library.)
-
-Open `app/models/idea.rb` and under the line
+The `Idea` model needs to know that its `picture` field is a file, not just some text. To do that, open `app/models/idea.rb` and under the line
 
 {% highlight ruby %}
 class Idea < ActiveRecord::Base
@@ -366,7 +351,7 @@ add
 mount_uploader :picture, PictureUploader
 {% endhighlight %}
 
-Open `app/views/ideas/_form.html.erb` and change
+The view that allows to create or edit images needs to show a field for selecting a file instead of a text field. To do that, open `app/views/ideas/_form.html.erb` and change
 
 {% highlight erb %}
 <%= f.text_field :picture %>
