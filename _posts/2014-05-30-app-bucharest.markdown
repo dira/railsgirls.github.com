@@ -294,30 +294,30 @@ th { border-bottom: 1px solid #DDD; }
 
 Save the file again and refresh the browser to see what was changed.
 
-[Bootstrap](http://getbootstrap.com/) is a free collection of styles that look nice. By including it in a web page, and following their conventions on how to structure the HTML, you get a nice style without much effort. But, if you want to experiment more with CSS and understand it better, you can play with it online: [http://cssdesk.com/VFVEk](http://cssdesk.com/VFVEk).
+**Coach:** Talk a little about CSS and layouts.
+
+### Play more if you want to
+
+[Bootstrap](http://getbootstrap.com/) is a free collection of styles that look nice. By including it in a web page, and following their conventions on how to structure the HTML, you get a nice style without much effort. 
+
+But, if you want to experiment more with CSS and understand it better, you can play with it online: [http://cssdesk.com/VFVEk](http://cssdesk.com/VFVEk).
 
 You can also change the HTML &amp; CSS of your Ideas website - tell your coach what you'd like to do and they'll help you.
 
-### Add a link to the Info page
-
-Let's add a link to the information page (from Step 1) in the navigation bar of the page. Open `app/assets/stylesheets/application.css` and in the middle, replace
+One example would be to add, in the header, a link to the information page (from Step 1). Open `app/views/layouts/application.html.erb` and in the middle, replace
 
 {% highlight html %}
-        <ul class="nav navbar-nav">
           <li><a href="/ideas">Ideas</a></li>
-        </ul>
 {% endhighlight %}
 
 with
 
 {% highlight html %}
-        <ul class="nav navbar-nav">
           <li><a href="/ideas">Ideas</a></li>
           <li><a href="/pages/info">About</a></li>
-        </ul>
 {% endhighlight %}
 
-**Coach:** Talk a little about CSS and layouts.
+
 
 
 ## Step 5: Add picture uploads
